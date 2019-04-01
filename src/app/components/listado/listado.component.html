@@ -1,0 +1,24 @@
+<app-contador></app-contador>
+<h2>Listado de ítems</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Nombre</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="!items.length">
+            <td colspan="3">Sin resultados</td>
+        </tr>
+        <tr *ngFor="let item of items; let i = index">
+            <td>#{{i}}</td>
+            <td>{{item.nombre}}</td>
+            <td>
+                <button (click)="eliminarItem(i)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="crearItem()">Crear item</button>
